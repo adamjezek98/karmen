@@ -1,0 +1,6 @@
+- POST /users/me/authenticate -> POST /tokens/ 
+    - does not set auth cookies / does not accept authentication through cookies
+- POST /user/me/authenticate-refres -> POST /tokens
+    - does not sent list of all users
+- POST /users/me -> POST /invitations
+- GET / - return just version

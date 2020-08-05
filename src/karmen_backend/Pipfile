@@ -4,36 +4,22 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+django-extensions = "*"
+django-werkzeug = "*"
 pytest = "*"
-pytest-xdist = "*"
-mock = "*"
-pylint = "*"
-black = "==19.*"
-coverage = "==4.5.4"
-python-coveralls = "*"
+requests = "*"
+pylama = "*"
 
 [packages]
-flask = "*"
-flask-cors = "*"
-requests = "*"
-celery = "*"
-psycopg2 = "*"
-premailer = "*"
-redis = "*"
-watchdog = "*"
-yandex-pgmigrate = "*"
-bcrypt = "*"
-flask-jwt-extended = "*"
-flask-executor = "*"
-sentry-sdk = {extras = ["flask"],version = "==0.16.3"}
-argh = "*"
-boto3 = "*"
-connexion = {extras = ["swagger-ui"],version = "==2.7.0"}
-redlock-py = "*"
-email_validator = "*"
+djangorestframework = ""
+djangorestframework-simplejwt = "*"
+Django = "*"
+base36 = "*"
+django-cache-lock = "*"
+requests = "==2.24.0"
+django-extensions = "==3.0.2"
+django-werkzeug = "==1.0.0"
+pytest = "==5.4.3"
 
 [requires]
 python_version = "3.7"
-
-[pipenv]
-allow_prereleases = true

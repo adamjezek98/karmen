@@ -1,0 +1,327 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ADMIN	printers/models.py	/^ADMIN = 'admin'$/;"	v
+ALLOWED_HOSTS	karmen/settings.py	/^ALLOWED_HOSTS = []$/;"	v
+AUTH_PASSWORD_VALIDATORS	karmen/settings.py	/^AUTH_PASSWORD_VALIDATORS = [$/;"	v
+AUTH_USER_MODEL	karmen/settings.py	/^AUTH_USER_MODEL = 'users.User'$/;"	v
+AbstractRoleModel	printers/models.py	/^class AbstractRoleModel(models.Model):$/;"	c
+AbstractUser	users/models.py	/^from django.contrib.auth.models import AbstractUser$/;"	i
+AccessToken	tokens/token.py	/^from rest_framework_simplejwt.tokens import AccessToken, RefreshToken, Token$/;"	i
+ActivationRequestSerializer	users/serializers.py	/^class ActivationRequestSerializer(serializers.Serializer):$/;"	c
+ActivationRequestSerializer	users/views.py	/^from users.serializers import InvitationRequestSerializer, ActivationRequestSerializer, UserSerializer, PasswordChangeSerializer$/;"	i
+AppConfig	debugging_tools/apps.py	/^from django.apps import AppConfig$/;"	i
+AppConfig	organizations/apps.py	/^from django.apps import AppConfig$/;"	i
+AppConfig	printers/apps.py	/^from django.apps import AppConfig$/;"	i
+AppConfig	tokens/apps.py	/^from django.apps import AppConfig$/;"	i
+AppConfig	users/apps.py	/^from django.apps import AppConfig$/;"	i
+BASE_DIR	karmen/settings.py	/^BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))$/;"	v
+BLACKLIST_KEY_PREFIX	tokens/token.py	/^BLACKLIST_KEY_PREFIX = 'token-blacklisted-'$/;"	v
+DATABASES	karmen/settings.py	/^DATABASES = {$/;"	v
+DEBUG	karmen/settings.py	/^DEBUG = True$/;"	v
+DebuggingViewSet	debugging_tools/views.py	/^class DebuggingViewSet(viewsets.ViewSet):$/;"	c
+DebuggingViewSet	karmen/urls.py	/^from debugging_tools.views import DebuggingViewSet$/;"	i
+DefaultRouter	debugging_tools/views.py	/^from rest_framework.routers import DefaultRouter$/;"	i
+DefaultRouter	printers/views.py	/^from rest_framework.routers import DefaultRouter$/;"	i
+EMAIL_BACKEND	karmen/settings.py	/^EMAIL_BACKEND = 'django.core.mail.backends.locmem.EmailBackend'$/;"	v
+EMAIL_FROM	karmen/settings.py	/^EMAIL_FROM = 'no-replay@karmen.local'$/;"	v
+EMAIL_VALIDATION_LIFETIME	karmen/settings.py	/^EMAIL_VALIDATION_LIFETIME = timedelta(days=7)$/;"	v
+EmailVerificationToken	tokens/token.py	/^class EmailVerificationToken(Token):$/;"	c
+EmailVerificationToken	users/serializers.py	/^from tokens.token import EmailVerificationToken$/;"	i
+HelperToolsConfig	debugging_tools/apps.py	/^class HelperToolsConfig(AppConfig):$/;"	c
+INSTALLED_APPS	karmen/settings.py	/^INSTALLED_APPS = [$/;"	v
+InvalidToken	tokens/views.py	/^from rest_framework_simplejwt.exceptions import TokenError, InvalidToken$/;"	i
+InvalidToken	users/serializers.py	/^from rest_framework_simplejwt.exceptions import TokenError, InvalidToken$/;"	i
+InvalidToken	users/views.py	/^from rest_framework_simplejwt.exceptions import InvalidToken, TokenError$/;"	i
+InvalidableTokenMixin	tokens/token.py	/^class InvalidableTokenMixin(object):$/;"	c
+InvitationRequestSerializer	users/serializers.py	/^class InvitationRequestSerializer(serializers.Serializer):$/;"	c
+InvitationRequestSerializer	users/views.py	/^from users.serializers import InvitationRequestSerializer, ActivationRequestSerializer, UserSerializer, PasswordChangeSerializer$/;"	i
+InvitationsViewSet	karmen/urls.py	/^from users.views import InvitationsViewSet, UsersViewSet$/;"	i
+InvitationsViewSet	users/views.py	/^class InvitationsViewSet(viewsets.ViewSet):$/;"	c
+KarmenAccessToken	tokens/token.py	/^class KarmenAccessToken(InvalidableTokenMixin, AccessToken):$/;"	c
+KarmenRefreshToken	tokens/serializers.py	/^from tokens.token import KarmenRefreshToken$/;"	i
+KarmenRefreshToken	tokens/token.py	/^class KarmenRefreshToken(InvalidableTokenMixin, RefreshToken):$/;"	c
+KarmenTokenObtainPairSerializer	tokens/serializers.py	/^class KarmenTokenObtainPairSerializer(TokenObtainSerializer):$/;"	c
+KarmenTokenObtainPairSerializer	tokens/views.py	/^from tokens.serializers import KarmenTokenObtainPairSerializer, KarmenTokenRefreshSerializer$/;"	i
+KarmenTokenRefreshSerializer	tokens/serializers.py	/^class KarmenTokenRefreshSerializer(serializers.Serializer):$/;"	c
+KarmenTokenRefreshSerializer	tokens/views.py	/^from tokens.serializers import KarmenTokenObtainPairSerializer, KarmenTokenRefreshSerializer$/;"	i
+LANGUAGE_CODE	karmen/settings.py	/^LANGUAGE_CODE = 'en-us'$/;"	v
+MIDDLEWARE	karmen/settings.py	/^MIDDLEWARE = [$/;"	v
+Meta	printers/models.py	/^    class Meta:$/;"	c	class:AbstractRoleModel
+Meta	printers/models.py	/^    class Meta:$/;"	c	class:PrinterInGroup
+Meta	printers/models.py	/^    class Meta:$/;"	c	class:UserOnPrinter
+Meta	printers/serializers.py	/^    class Meta:$/;"	c	class:PrinterSerializer
+Meta	users/serializers.py	/^    class Meta:$/;"	c	class:UserSerializer
+Migration	printers/migrations/0001_initial.py	/^class Migration(migrations.Migration):$/;"	c
+Migration	users/migrations/0001_initial.py	/^class Migration(migrations.Migration):$/;"	c
+OrganizationsConfig	organizations/apps.py	/^class OrganizationsConfig(AppConfig):$/;"	c
+PasswordChangeSerializer	users/serializers.py	/^class PasswordChangeSerializer(serializers.Serializer):$/;"	c
+PasswordChangeSerializer	users/views.py	/^from users.serializers import InvitationRequestSerializer, ActivationRequestSerializer, UserSerializer, PasswordChangeSerializer$/;"	i
+Printer	printers/models.py	/^class Printer(models.Model):$/;"	c
+PrinterGroup	printers/models.py	/^class PrinterGroup(models.Model):$/;"	c
+PrinterInGroup	printers/models.py	/^class PrinterInGroup(AbstractRoleModel):$/;"	c
+PrinterSerializer	printers/serializers.py	/^class PrinterSerializer(serializers.ModelSerializer):$/;"	c
+PrintersConfig	printers/apps.py	/^class PrintersConfig(AppConfig):$/;"	c
+PrintersViewSet	karmen/urls.py	/^from printers.views import PrintersViewSet$/;"	i
+PrintersViewSet	printers/views.py	/^class PrintersViewSet(viewsets.ModelViewSet):$/;"	c
+REST_FRAMEWORK	karmen/settings.py	/^REST_FRAMEWORK = {$/;"	v
+ROLES	printers/models.py	/^    ROLES = ($/;"	v	class:AbstractRoleModel
+ROOT_URLCONF	karmen/settings.py	/^ROOT_URLCONF = 'karmen.urls'$/;"	v
+RefreshToken	tokens/token.py	/^from rest_framework_simplejwt.tokens import AccessToken, RefreshToken, Token$/;"	i
+Response	debugging_tools/views.py	/^from rest_framework.response import Response$/;"	i
+Response	karmen/urls.py	/^from rest_framework.response import Response$/;"	i
+Response	printers/views.py	/^from rest_framework.response import Response$/;"	i
+Response	tokens/views.py	/^from rest_framework.response import Response$/;"	i
+Response	users/serializers.py	/^from rest_framework.response import Response$/;"	i
+Response	users/views.py	/^from rest_framework.response import Response$/;"	i
+SECRET_KEY	karmen/settings.py	/^SECRET_KEY = 'hqc)jgx^fr8m8b4+4+@$@t)pyu8k_unl2#j+8xgo*gn+_czv9_'$/;"	v
+SIMPLE_JWT	karmen/settings.py	/^SIMPLE_JWT = {$/;"	v
+STATIC_URL	karmen/settings.py	/^STATIC_URL = '\/static\/'$/;"	v
+TEMPLATES	karmen/settings.py	/^TEMPLATES = [$/;"	v
+TIME_ZONE	karmen/settings.py	/^TIME_ZONE = 'UTC'$/;"	v
+TestCase	debugging_tools/tests.py	/^from django.test import TestCase$/;"	i
+TestCase	organizations/tests.py	/^from django.test import TestCase$/;"	i
+TestCase	printers/tests.py	/^from django.test import TestCase$/;"	i
+TestCase	tokens/tests.py	/^from django.test import TestCase$/;"	i
+TestCase	users/tests.py	/^from django.test import TestCase$/;"	i
+Token	tokens/token.py	/^from rest_framework_simplejwt.tokens import AccessToken, RefreshToken, Token$/;"	i
+Token	users/views.py	/^from rest_framework_simplejwt.tokens import Token$/;"	i
+TokenError	tokens/token.py	/^from rest_framework_simplejwt.exceptions import TokenError$/;"	i
+TokenError	tokens/views.py	/^from rest_framework_simplejwt.exceptions import TokenError, InvalidToken$/;"	i
+TokenError	users/serializers.py	/^from rest_framework_simplejwt.exceptions import TokenError, InvalidToken$/;"	i
+TokenError	users/views.py	/^from rest_framework_simplejwt.exceptions import InvalidToken, TokenError$/;"	i
+TokenObtainPairView	karmen/urls.py	/^from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView$/;"	i
+TokenObtainSerializer	tokens/serializers.py	/^from rest_framework_simplejwt.serializers import TokenObtainSerializer$/;"	i
+TokenRefreshView	karmen/urls.py	/^from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView$/;"	i
+TokensConfig	tokens/apps.py	/^class TokensConfig(AppConfig):$/;"	c
+TokensViewSet	karmen/urls.py	/^from tokens.views import TokensViewSet$/;"	i
+TokensViewSet	tokens/views.py	/^class TokensViewSet(viewsets.ViewSet):$/;"	c
+USER	printers/models.py	/^USER = 'user'$/;"	v
+USE_I18N	karmen/settings.py	/^USE_I18N = True$/;"	v
+USE_L10N	karmen/settings.py	/^USE_L10N = True$/;"	v
+USE_TZ	karmen/settings.py	/^USE_TZ = True$/;"	v
+User	printers/models.py	/^from users.models import User$/;"	i
+User	tokens/serializers.py	/^from rest_framework_simplejwt.state import User$/;"	i
+User	users/models.py	/^class User(AbstractUser):$/;"	c
+User	users/serializers.py	/^from users.models import User$/;"	i
+User	users/views.py	/^from users.models import User$/;"	i
+UserOnPrinter	printers/models.py	/^class UserOnPrinter(AbstractRoleModel):$/;"	c
+UserSerializer	users/serializers.py	/^class UserSerializer(serializers.ModelSerializer):$/;"	c
+UserSerializer	users/views.py	/^from users.serializers import InvitationRequestSerializer, ActivationRequestSerializer, UserSerializer, PasswordChangeSerializer$/;"	i
+UserViewSet	users/urls.py	/^from users.views import UserViewSet$/;"	i
+UsersConfig	users/apps.py	/^class UsersConfig(AppConfig):$/;"	c
+UsersViewSet	karmen/urls.py	/^from users.views import InvitationsViewSet, UsersViewSet$/;"	i
+UsersViewSet	users/views.py	/^class UsersViewSet(viewsets.ModelViewSet):$/;"	c
+WSGI_APPLICATION	karmen/settings.py	/^WSGI_APPLICATION = 'karmen.wsgi.application'$/;"	v
+__init__	users/serializers.py	/^    def __init__(self, *args, **kwargs):$/;"	m	class:UserSerializer
+_cache_key	tokens/token.py	/^    def _cache_key(self):$/;"	m	class:InvalidableTokenMixin
+_create	tokens/views.py	/^    def _create(self, serializer_class, request):$/;"	m	class:TokensViewSet
+abstract	printers/models.py	/^        abstract = True  # only for inheritance$/;"	v	class:AbstractRoleModel.Meta
+admin	debugging_tools/admin.py	/^from django.contrib import admin$/;"	i
+admin	karmen/urls.py	/^from django.contrib import admin$/;"	i
+admin	organizations/admin.py	/^from django.contrib import admin$/;"	i
+admin	printers/admin.py	/^from django.contrib import admin$/;"	i
+admin	tokens/admin.py	/^from django.contrib import admin$/;"	i
+admin	users/admin.py	/^from django.contrib import admin$/;"	i
+api_key	printers/models.py	/^    api_key = models.CharField('API key', max_length=255, blank=True, help_text='API key used to access the printer')$/;"	v	class:Printer
+api_settings	tokens/serializers.py	/^from rest_framework_simplejwt.settings import api_settings$/;"	i
+api_version_view	karmen/urls.py	/^def api_version_view(request):$/;"	f
+application	karmen/asgi.py	/^application = get_asgi_application()$/;"	v
+application	karmen/wsgi.py	/^application = get_wsgi_application()$/;"	v
+auth	users/migrations/0001_initial.py	/^import django.contrib.auth.models$/;"	i
+auth	users/migrations/0001_initial.py	/^import django.contrib.auth.validators$/;"	i
+blacklist	tokens/token.py	/^    def blacklist(self):$/;"	m	class:InvalidableTokenMixin
+cache	tokens/token.py	/^from django.core.cache import cache$/;"	i
+chain	printers/models.py	/^from itertools import chain$/;"	i
+constraint	printers/migrations/0001_initial.py	/^            constraint=models.UniqueConstraint(fields=('printer', 'group'), name='Uniq_printer_in_group'),$/;"	v	class:Migration
+constraint	printers/migrations/0001_initial.py	/^            constraint=models.UniqueConstraint(fields=('printer', 'user'), name='Uniq_user_on_printer'),$/;"	v	class:Migration
+constraints	printers/models.py	/^        constraints = ($/;"	v	class:PrinterInGroup.Meta
+constraints	printers/models.py	/^        constraints = ($/;"	v	class:UserOnPrinter.Meta
+contrib	users/migrations/0001_initial.py	/^import django.contrib.auth.models$/;"	i
+contrib	users/migrations/0001_initial.py	/^import django.contrib.auth.validators$/;"	i
+create	tokens/views.py	/^    def create(self, request):$/;"	m	class:TokensViewSet
+create	users/serializers.py	/^    def create(self, validated_data):$/;"	m	class:ActivationRequestSerializer
+create	users/serializers.py	/^    def create(self, validated_data):$/;"	m	class:InvitationRequestSerializer
+create	users/views.py	/^    def create(self, request):$/;"	m	class:InvitationsViewSet
+create	users/views.py	/^    def create(self, request):$/;"	m	class:UsersViewSet
+created_on	printers/models.py	/^    created_on = models.DateTimeField(auto_now_add=True)$/;"	v	class:Printer
+datetime_from_epoch	tokens/token.py	/^from rest_framework_simplejwt.utils import datetime_from_epoch$/;"	i
+db	printers/migrations/0001_initial.py	/^import django.db.models.deletion$/;"	i
+decorators	debugging_tools/views.py	/^from rest_framework import viewsets, serializers, decorators$/;"	i
+decorators	tokens/views.py	/^from rest_framework import status, viewsets, decorators, permissions$/;"	i
+decorators	users/views.py	/^from rest_framework import serializers, viewsets, permissions, exceptions, status, decorators$/;"	i
+deletion	printers/migrations/0001_initial.py	/^import django.db.models.deletion$/;"	i
+dependencies	printers/migrations/0001_initial.py	/^    dependencies = [$/;"	v	class:Migration
+dependencies	users/migrations/0001_initial.py	/^    dependencies = [$/;"	v	class:Migration
+destroy	users/views.py	/^    def destroy(self, request, pk=None):$/;"	m	class:UsersViewSet
+django	printers/migrations/0001_initial.py	/^import django.db.models.deletion$/;"	i
+django	users/migrations/0001_initial.py	/^import django.contrib.auth.models$/;"	i
+django	users/migrations/0001_initial.py	/^import django.contrib.auth.validators$/;"	i
+django	users/migrations/0001_initial.py	/^import django.utils.timezone$/;"	i
+email	users/serializers.py	/^    email = serializers.EmailField(required=True, label='Your e-mail')$/;"	v	class:InvitationRequestSerializer
+exceptions	printers/views.py	/^from rest_framework import viewsets, exceptions, status$/;"	i
+exceptions	users/serializers.py	/^from rest_framework import serializers, exceptions, status$/;"	i
+exceptions	users/views.py	/^from rest_framework import serializers, viewsets, permissions, exceptions, status, decorators$/;"	i
+execute_from_command_line	manage.py	/^        from django.core.management import execute_from_command_line$/;"	i
+expires_at	tokens/token.py	/^    def expires_at(self):$/;"	m	class:InvalidableTokenMixin
+extra_kwargs	users/serializers.py	/^        extra_kwargs = {'password': {'write_only': True}}$/;"	v	class:UserSerializer.Meta
+field	printers/migrations/0001_initial.py	/^            field=models.ManyToManyField(related_name='groups', through='printers.PrinterInGroup', to='printers.Printer'),$/;"	v	class:Migration
+field	printers/migrations/0001_initial.py	/^            field=models.ManyToManyField(related_name='printer_groups', to=settings.AUTH_USER_MODEL),$/;"	v	class:Migration
+field	printers/migrations/0001_initial.py	/^            field=models.ManyToManyField(related_name='printers', through='printers.UserOnPrinter', to=settings.AUTH_USER_MODEL),$/;"	v	class:Migration
+fields	printers/migrations/0001_initial.py	/^            fields=[$/;"	v	class:Migration
+fields	printers/serializers.py	/^        fields = '__all__'$/;"	v	class:PrinterSerializer.Meta
+fields	users/migrations/0001_initial.py	/^            fields=[$/;"	v	class:Migration
+fields	users/serializers.py	/^        fields = '__all__'$/;"	v	class:UserSerializer.Meta
+for_email	tokens/token.py	/^    def for_email(cls, email):$/;"	m	class:EmailVerificationToken
+gen_short_uid	karmen/utils.py	/^def gen_short_uid():$/;"	f
+gen_short_uid	printers/models.py	/^from karmen.utils import gen_short_uid$/;"	i
+get_asgi_application	karmen/asgi.py	/^from django.core.asgi import get_asgi_application$/;"	i
+get_permissions	users/views.py	/^    def get_permissions(self):$/;"	m	class:UsersViewSet
+get_token	tokens/serializers.py	/^    def get_token(cls, user):$/;"	m	class:KarmenTokenObtainPairSerializer
+get_wsgi_application	karmen/wsgi.py	/^from django.core.wsgi import get_wsgi_application$/;"	i
+group	printers/models.py	/^    group = models.ForeignKey(PrinterGroup, on_delete=models.CASCADE)$/;"	v	class:PrinterInGroup
+help_text	printers/models.py	/^        help_text='Printer most either associated with a pill device or issued by a key manager')$/;"	v	class:Printer
+http_method_names	users/views.py	/^    http_method_names = ('post',)$/;"	v	class:InvitationsViewSet
+id	printers/models.py	/^    id = models.CharField('ID', default=gen_short_uid, max_length=8, primary_key=True)$/;"	v	class:Printer
+id	printers/models.py	/^    id = models.CharField('ID', default=gen_short_uid, max_length=8, primary_key=True)$/;"	v	class:PrinterGroup
+include	karmen/urls.py	/^from django.urls import include, path$/;"	i
+include	users/urls.py	/^from django.urls import path, include$/;"	i
+initial	printers/migrations/0001_initial.py	/^    initial = True$/;"	v	class:Migration
+initial	users/migrations/0001_initial.py	/^    initial = True$/;"	v	class:Migration
+is_admin	printers/models.py	/^    def is_admin(self, user):$/;"	m	class:Printer
+json	karmen/urls.py	/^import json$/;"	i
+karmen	printers/migrations/0001_initial.py	/^import karmen.utils$/;"	i
+last_updated_on	printers/models.py	/^    last_updated_on = models.DateTimeField(auto_now=True)$/;"	v	class:Printer
+lifetime	tokens/serializers.py	/^    lifetime = serializers.IntegerField(label='Token lifetime in seconds.', required=False, default=None)$/;"	v	class:KarmenTokenObtainPairSerializer
+lifetime	tokens/token.py	/^    lifetime = settings.EMAIL_VALIDATION_LIFETIME$/;"	v	class:EmailVerificationToken
+list_users	printers/models.py	/^    def list_users(self, role=None):$/;"	m	class:Printer
+mail	debugging_tools/views.py	/^from django.core import mail$/;"	i
+mail	printers/views.py	/^from django.core import mail$/;"	i
+mails	debugging_tools/views.py	/^    def mails(self, request):$/;"	m	class:DebuggingViewSet
+main	manage.py	/^def main():$/;"	f
+managers	users/migrations/0001_initial.py	/^            managers=[$/;"	v	class:Migration
+md5	tokens/token.py	/^from hashlib import md5$/;"	i
+me	users/views.py	/^    def me(self, request):$/;"	m	class:UsersViewSet
+me_patch	users/views.py	/^    def me_patch(self, request):$/;"	m	class:UsersViewSet
+migrations	printers/migrations/0001_initial.py	/^from django.db import migrations, models$/;"	i
+migrations	users/migrations/0001_initial.py	/^from django.db import migrations, models$/;"	i
+mine	tokens/views.py	/^    def mine(self, request):$/;"	m	class:TokensViewSet
+model	printers/serializers.py	/^        model = models.Printer$/;"	v	class:PrinterSerializer.Meta
+model	users/serializers.py	/^        model = User$/;"	v	class:UserSerializer.Meta
+model_name	printers/migrations/0001_initial.py	/^            model_name='printer',$/;"	v	class:Migration
+model_name	printers/migrations/0001_initial.py	/^            model_name='printergroup',$/;"	v	class:Migration
+model_name	printers/migrations/0001_initial.py	/^            model_name='printeringroup',$/;"	v	class:Migration
+model_name	printers/migrations/0001_initial.py	/^            model_name='useronprinter',$/;"	v	class:Migration
+models	debugging_tools/models.py	/^from django.db import models$/;"	i
+models	organizations/models.py	/^from django.db import models$/;"	i
+models	printers/migrations/0001_initial.py	/^from django.db import migrations, models$/;"	i
+models	printers/migrations/0001_initial.py	/^import django.db.models.deletion$/;"	i
+models	printers/models.py	/^from django.db import models$/;"	i
+models	printers/serializers.py	/^from printers import models$/;"	i
+models	printers/views.py	/^from printers import models, serializers$/;"	i
+models	tokens/models.py	/^from django.db import models$/;"	i
+models	users/migrations/0001_initial.py	/^from django.db import migrations, models$/;"	i
+models	users/migrations/0001_initial.py	/^import django.contrib.auth.models$/;"	i
+models	users/models.py	/^from django.db import models$/;"	i
+name	debugging_tools/apps.py	/^    name = 'debugging_tools'$/;"	v	class:HelperToolsConfig
+name	organizations/apps.py	/^    name = 'organizations'$/;"	v	class:OrganizationsConfig
+name	printers/apps.py	/^    name = 'printers'$/;"	v	class:PrintersConfig
+name	printers/migrations/0001_initial.py	/^            name='Printer',$/;"	v	class:Migration
+name	printers/migrations/0001_initial.py	/^            name='PrinterGroup',$/;"	v	class:Migration
+name	printers/migrations/0001_initial.py	/^            name='PrinterInGroup',$/;"	v	class:Migration
+name	printers/migrations/0001_initial.py	/^            name='UserOnPrinter',$/;"	v	class:Migration
+name	printers/migrations/0001_initial.py	/^            name='printers',$/;"	v	class:Migration
+name	printers/migrations/0001_initial.py	/^            name='users',$/;"	v	class:Migration
+name	printers/models.py	/^    name = models.CharField('Name', max_length=255, help_text="Printer will be presented by this name.")$/;"	v	class:Printer
+name	printers/models.py	/^    name = models.CharField('Name', max_length=255, help_text='User friendly name of the group.')$/;"	v	class:PrinterGroup
+name	tokens/apps.py	/^    name = 'tokens'$/;"	v	class:TokensConfig
+name	users/apps.py	/^    name = 'users'$/;"	v	class:UsersConfig
+name	users/migrations/0001_initial.py	/^            name='User',$/;"	v	class:Migration
+new_password	users/serializers.py	/^    new_password = serializers.CharField(label='password to change to', required=True)$/;"	v	class:PasswordChangeSerializer
+old_password	users/serializers.py	/^    old_password = serializers.CharField(label='old password for validation', required=True)$/;"	v	class:PasswordChangeSerializer
+operations	printers/migrations/0001_initial.py	/^    operations = [$/;"	v	class:Migration
+operations	users/migrations/0001_initial.py	/^    operations = [$/;"	v	class:Migration
+options	users/migrations/0001_initial.py	/^            options={$/;"	v	class:Migration
+os	karmen/asgi.py	/^import os$/;"	i
+os	karmen/settings.py	/^import os$/;"	i
+os	karmen/utils.py	/^import os$/;"	i
+os	karmen/wsgi.py	/^import os$/;"	i
+os	manage.py	/^import os$/;"	i
+password	users/serializers.py	/^    password = serializers.CharField()$/;"	v	class:ActivationRequestSerializer
+path	karmen/urls.py	/^from django.urls import include, path$/;"	i
+path	users/urls.py	/^from django.urls import path, include$/;"	i
+permission_classes	tokens/views.py	/^    permission_classes = [permissions.AllowAny]$/;"	v	class:TokensViewSet
+permission_classes	users/views.py	/^    permission_classes = [permissions.AllowAny]$/;"	v	class:InvitationsViewSet
+permission_classes	users/views.py	/^    permission_classes = [permissions.IsAdminUser]$/;"	v	class:UsersViewSet
+permissions	tokens/views.py	/^from rest_framework import status, viewsets, decorators, permissions$/;"	i
+permissions	users/views.py	/^from rest_framework import serializers, viewsets, permissions, exceptions, status, decorators$/;"	i
+printer	printers/models.py	/^    printer = models.ForeignKey(Printer, on_delete=models.CASCADE)$/;"	v	class:PrinterInGroup
+printer	printers/models.py	/^    printer = models.ForeignKey(Printer, on_delete=models.CASCADE)$/;"	v	class:UserOnPrinter
+printers	printers/models.py	/^    printers = models.ManyToManyField(Printer, related_name='groups', through='PrinterInGroup')$/;"	v	class:PrinterGroup
+project_opened	.ropeproject/config.py	/^def project_opened(project):$/;"	f
+queryset	printers/views.py	/^    queryset = models.Printer.objects.all()$/;"	v	class:PrintersViewSet
+queryset	users/views.py	/^    queryset = User.objects.all()$/;"	v	class:UsersViewSet
+read_only_fields	printers/serializers.py	/^        read_only_fields = ['id']$/;"	v	class:PrinterSerializer.Meta
+read_only_fields	users/serializers.py	/^        read_only_fields = ['id']$/;"	v	class:UserSerializer.Meta
+refresh	tokens/serializers.py	/^    refresh = serializers.CharField()$/;"	v	class:KarmenTokenRefreshSerializer
+refresh	tokens/views.py	/^    def refresh(self, request, *args, **kwargs):$/;"	m	class:TokensViewSet
+render	debugging_tools/views.py	/^from django.shortcuts import render$/;"	i
+render	organizations/views.py	/^from django.shortcuts import render$/;"	i
+render	printers/views.py	/^from django.shortcuts import render$/;"	i
+restricted_fields	users/serializers.py	/^    restricted_fields = set(('username', 'last_login', 'first_name', 'last_name', 'email')) $/;"	v	class:UserSerializer
+role	printers/models.py	/^    role = models.CharField('User role', default=USER, blank=False, max_length=20, choices=ROLES)$/;"	v	class:AbstractRoleModel
+router	karmen/urls.py	/^router = routers.DefaultRouter()$/;"	v
+router	users/urls.py	/^router = routers.DefaultRouter()$/;"	v
+routers	karmen/urls.py	/^from rest_framework import routers$/;"	i
+routers	users/urls.py	/^from rest_framework import routers$/;"	i
+send_mail	users/serializers.py	/^from django.core.mail import send_mail$/;"	i
+serializer_class	printers/views.py	/^    serializer_class = serializers.PrinterSerializer$/;"	v	class:PrintersViewSet
+serializer_class	users/views.py	/^    serializer_class = UserSerializer$/;"	v	class:UsersViewSet
+serializers	debugging_tools/views.py	/^from rest_framework import viewsets, serializers, decorators$/;"	i
+serializers	printers/serializers.py	/^from rest_framework import serializers$/;"	i
+serializers	printers/views.py	/^from printers import models, serializers$/;"	i
+serializers	tokens/serializers.py	/^from rest_framework import serializers$/;"	i
+serializers	users/serializers.py	/^from rest_framework import serializers, exceptions, status$/;"	i
+serializers	users/views.py	/^from rest_framework import serializers, viewsets, permissions, exceptions, status, decorators$/;"	i
+set_prefs	.ropeproject/config.py	/^def set_prefs(prefs):$/;"	f
+settings	printers/migrations/0001_initial.py	/^from django.conf import settings$/;"	i
+settings	tokens/token.py	/^from django.conf import settings$/;"	i
+settings	users/serializers.py	/^from django.conf import settings$/;"	i
+status	printers/views.py	/^from rest_framework import viewsets, exceptions, status$/;"	i
+status	tokens/views.py	/^from rest_framework import status, viewsets, decorators, permissions$/;"	i
+status	users/serializers.py	/^from rest_framework import serializers, exceptions, status$/;"	i
+status	users/views.py	/^from rest_framework import serializers, viewsets, permissions, exceptions, status, decorators$/;"	i
+sys	manage.py	/^import sys$/;"	i
+time_remining	tokens/token.py	/^    def time_remining(self):$/;"	m	class:InvalidableTokenMixin
+timedelta	karmen/settings.py	/^from datetime import timedelta$/;"	i
+timedelta	tokens/serializers.py	/^from datetime import timedelta$/;"	i
+timezone	users/migrations/0001_initial.py	/^import django.utils.timezone$/;"	i
+token	printers/models.py	/^    token = models.CharField($/;"	v	class:Printer
+token	users/serializers.py	/^    token = serializers.CharField(label='Token')$/;"	v	class:ActivationRequestSerializer
+token_type	tokens/token.py	/^    token_type = 'email-validation'$/;"	v	class:EmailVerificationToken
+update	users/serializers.py	/^    def update(self, instance, validated_data):$/;"	m	class:PasswordChangeSerializer
+urlpatterns	karmen/urls.py	/^urlpatterns = [$/;"	v
+urlpatterns	users/urls.py	/^urlpatterns = [$/;"	v
+urlsafe_b64encode	karmen/utils.py	/^from base64 import urlsafe_b64encode$/;"	i
+user	printers/models.py	/^    user = models.ForeignKey(User, on_delete=models.CASCADE)$/;"	v	class:UserOnPrinter
+username_field	tokens/serializers.py	/^    username_field = User.USERNAME_FIELD$/;"	v	class:KarmenTokenObtainPairSerializer
+users	printers/models.py	/^    users = models.ManyToManyField(User, related_name='printer_groups')$/;"	v	class:PrinterGroup
+users	printers/models.py	/^    users = models.ManyToManyField(User, through='UserOnPrinter', related_name='printers')$/;"	v	class:Printer
+utils	printers/migrations/0001_initial.py	/^import karmen.utils$/;"	i
+utils	users/migrations/0001_initial.py	/^import django.utils.timezone$/;"	i
+validate	tokens/serializers.py	/^    def validate(self, attrs):$/;"	m	class:KarmenTokenObtainPairSerializer
+validate	tokens/serializers.py	/^    def validate(self, attrs):$/;"	m	class:KarmenTokenRefreshSerializer
+validate	users/serializers.py	/^    def validate(self, attrs):$/;"	m	class:ActivationRequestSerializer
+validate_email	users/serializers.py	/^    def validate_email(self, value):$/;"	m	class:InvitationRequestSerializer
+validate_lifetime	tokens/serializers.py	/^    def validate_lifetime(self, value):$/;"	m	class:KarmenTokenObtainPairSerializer
+validate_old_password	users/serializers.py	/^    def validate_old_password(self, old_password):$/;"	m	class:PasswordChangeSerializer
+validate_token	users/serializers.py	/^    def validate_token(self, value):$/;"	m	class:ActivationRequestSerializer
+validators	users/migrations/0001_initial.py	/^import django.contrib.auth.validators$/;"	i
+verify	tokens/token.py	/^    def verify(self):$/;"	m	class:InvalidableTokenMixin
+viewsets	debugging_tools/views.py	/^from rest_framework import viewsets, serializers, decorators$/;"	i
+viewsets	printers/views.py	/^from rest_framework import viewsets, exceptions, status$/;"	i
+viewsets	tokens/views.py	/^from rest_framework import status, viewsets, decorators, permissions$/;"	i
+viewsets	users/views.py	/^from rest_framework import serializers, viewsets, permissions, exceptions, status, decorators$/;"	i

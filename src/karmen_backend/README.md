@@ -1,122 +1,154 @@
-# Karmen backend
+# Karmen backend II.
 
-[![Build status](https://api.travis-ci.com/fragaria/karmen.svg?branch=master)](https://travis-ci.com/fragaria/karmen)
-[![Coverage Status](https://coveralls.io/repos/github/fragaria/karmen/badge.svg?branch=master)](https://coveralls.io/github/fragaria/karmen?branch=master)
+## Installation
 
-Python based REST API backend for Karmen.
+    git clone git@bitbucket.org:fragariacz/karmen-backend2.git
+    cd karmen-backend2
+    pipenv install -r requirements.pip -r requirements-dev.pip
+    pipenv run karmen/manage.py migrate
+    pipenv run karmen/manage.py runserver
+
+Open `http://localhost:8000/api/2`. If you see:
+
+
+```
+GET /api/2/
+
+HTTP 403 Forbidden
+Allow: GET, HEAD, OPTIONS
+Content-Type: application/json
+Vary: Accept
+
+{
+    "detail": "Authentication credentials were not provided."
+}
+```
+
+then you just installed Karmen backend II.
+
+If you want to insert some testing data to start playing call
+
+```
+    pipenv run karmen/manage.py generate_test_data
+```
+
+Now you should be able to login in `/api/2`
+- as user: `user@example.com` / password `user` or
+- as admin: `admin` with password `admin`.
+
+Try to open /api/2/ again when you are logged in. You should see
+
+```
+GET /api/2/
+
+HTTP 200 OK
+Allow: GET, HEAD, OPTIONS
+Content-Type: application/json
+Vary: Accept
+
+{
+    "invitations": "http://localhost:8000/api/2/invitations/",
+    "users/me/printers": "http://localhost:8000/api/2/users/me/printers/",
+    "users": "http://localhost:8000/api/2/users/",
+    "tokens": "http://localhost:8000/api/2/tokens/",
+    "printers": "http://localhost:8000/api/2/printers/"
+}
+```
+
+This is list of main API endpoints.
+
+The main endpoints for your user data are under `/users/me/`:
+
+- /api/2/users/me/
+- /api/2/users/me/printers/
+- /api/2/users/me/groups/
+
+If you want to include an octoprint response set `api_key` in a printer object to
+url to octoprint api. For example: `http://localhost:8080/api/?apikey=<api_key>`
+This is development hack which is not meant to be kept in final application.
+
+Look in [test_users](./tests/test_users.py) to see how to register as a new user.
+
+For examples and informations on how to use the API look in [tests](./tests).
 
 ## Development
 
-The preferred way is to use the composed docker package as [described in here](../../README.md).
-You don't have to bother with setup of database and other services.
+## Project layout
 
-### API
+Karmen is a [Django Framework](https://docs.djangoproject.com/) project with
+[Django Rest Framework](https://www.django-rest-framework.org/). For
+information on filesystem structrure refere to django documentation or
+[djangobook](https://djangobook.com/mdj2-django-structure/) 
 
-This project has OpenAPI specifications of the API. The yaml files can be found in `openapi` directory.
-Development docker bundle also contains [Redoc](http://localhost:4000/openapi/) at `/openapi/`, so you can 
-browse the API documentation. If you prefer your own tool, the yaml is accessible at  `http://localhost:4000/api/openapi-spec.yaml`
+**Main parts**
+
+- debugging_tools - various tools used during debugging / testing. This app is
+  installed only when `DEBUG` is set to `True`.
+- [users](./karmen/users) - app - custom user model which extends Django's own User
+- [printers](./karmen/printers) - app - configured printers
+     - [octoprint.py](./karmen/printers/octoprint.py) - octoprint connector
+- [groups](./karmen/groups) - app - puts printers and users together.
+- [files](./karmen/files) - app - uploaded files (gcodes under former Karmen Backend)
 
 
-## Contributing
+### Conventions
 
-Before commiting, format the code. This can be done from pipenv shell. Pipenv is described below.
- 
-```sh
-cd src/karmen_backend
-pipenv shell
-make format
+- Object level access permission model is implemented in
+  [ObjectLevelAccessRestrictionViewSetMixin](./karmen/karmen/viewsets.py). It expects that
+  objects has methods `can_view(user)`, `can_modify(user)` and
+  `can_delete(user)`. The latest defaults to `can_modify(user)` when omitted.
+- Currently, User is expected to have e-mail in username. This is not good
+  solution and is subject to change.
+
+### API tests
+
+There are growing API [tests](./tests) in root directory. These tests should
+use API only and are completely independent on backend implementation -
+therefor no mocks should be used.
+
+#### api fixture
+
+To make testing more comfortable, you can use `api` pytest fixture with [api
+client](./tests/conftest.py). The usage is simple. For example to list user printers
+`api.get('users/me/printers/')`, to add printer: `api.post(`printers`, {'name':
+'My new printer'})`. There is also `as_admin` fixture which contains `api`
+authenticated as admin user (expects user `admin` with password `admin`) in
+test database.
+
+
+
+### E-mails
+
+When django's `locmem` e-mail backend is used (default for development) and
+`DEBUG=True` under settings, sent e-mail messages are accessible on
+`/api/2/debug/mails` (you have to be logged in as `admin`). This is
+particularly useful for invitation debugging.
+
+### Octoprint with virtual printer
+
+- Checkout OctoPrint: `git clone https://github.com/OctoPrint/OctoPrint.git`
+- Change into the OctoPrint folder: `cd OctoPrint`
+- Create a user-owned virtual environment therein: `virtualenv venv`
+- Install OctoPrint into that virtual environment: `./venv/bin/pip install .`
+- run `octoprint server --host=127.0.0.1 --port=8080`
+
+*Source https://github.com/OctoPrint/OctoPrint#usage*
+
+**Add virtual printer**
+
+Open octoprint configuration file
+- Linux: `~/.octoprint/config.yaml`
+- macOs: `~/Library/Application Support/OctoPrint/config.yaml`
+
+Add following lines:
+
 ```
- 
-
-### Testing
-
-There are two options:
-
-1. docker - just run `make test-isolated`
-2. `pipenv`
-    - You need `pipenv`, `python3-dev`, `libpq-dev`, `postgresql-client` dependencies
-    - install dependencies by running `cd src/karmen_backend/ && pipenv install --dev`
-    - Run `pipenv run make test` or `pipenv make test-watch`
-    - You can also append additional arguments to pytest: `make test-watch test_args='--maxfail=2 tests/services/mailer/mailers`
-
-
-### Docker
-
-You might need to adjust configuraition in environment variables to properly connect to Redis and PostgreSQL. Don't
-forget to setup the database with migrations from `db/migrations/`. You can run `scripts/migrate.sh`
-with properly set `POSTGRES_HOST`, `POSTGRES_PORT` and `ENV` environment variables for that.
-
-```sh
-docker build -t fragaria/karmen-backend .
-docker run -e ENV=develop -e SERVICE=flask -p5000:9764 fragaria/karmen-backend
-docker run -e ENV=develop -e SERVICE=celery-worker fragaria/karmen-backend
-docker run -e ENV=develop -e SERVICE=celery-beat fragaria/karmen-backend
+devel:
+  virtualPrinter:
+    enabled: true
 ```
 
-You can control the exposed interface and port with the following environment variables. This is useful when container is
-run in the docker's networking host mode.
+Restart octoprint.
+To connect to virtual printer select `VIRTUAL` under serial port.
 
-- `SERVICE_HOST` - Interface on which the proxy will be exposed, defaults to `0.0.0.0`. 
-- `SERVICE_PORT` - Port on which the proxy will be exposed, defaults to `9766`
-
-
-**Culprits**
-
-- The `celery-*` services are necessary for regular checks of the state of connected printers and for network discovery.
-If you don't mind that the connection state might be off for some time, you are fine without them.
-- Octoprint and other services are using [Multicast DNS](https://en.wikipedia.org/wiki/Multicast_DNS) for
-service autodiscovery. This works only when docker containers have the host's `/var/run/dbus` directory
-mapped as a volume into the container. This feature is called from `flask` and `celery-worker` services. This might
-not work on Windows, Android and other operating systems.
-- The network autodiscovery service is using [ARP queries](https://en.wikipedia.org/wiki/Address_Resolution_Protocol)
-which don't work out of the box in a docker container. To make ARP work, the container has to run in a `host` network mode
-which affects how it is connected to the other containers (database, redis).
-
-### Manual mode
-
-- Install `pipenv` and make its binary accessible on your PATH
-- Install `arp-scan` (for printer discovery), `avahi-utils` (for bonjour hostname autodiscovery), `libpq-dev` (for psycopg2 build)
-- Setup redis instance
-- Jump into pipenv's virtualenv by running `pipenv install --dev && pipenv shell`
-- Setup pgsql database and hydrate it by running `scripts/migrate.sh` with properly set `POSTGRES_HOST`, `POSTGRES_PORT` and `ENV` environment variables
-- Configure `flask` with `export FLASK_APP=server`
-- Optionally enable debug mode with `export FLASK_DEBUG=true`
-- `flask run` and the server will start to accept connections on `http://localhost:5000`
-- Visit `localhost:5000`
-
-## User access model
-
-- `users` - A list of users in the system. Every user has potentially multiple *providers*. These
-are identity providers, such as OAuth services, SAML services. Currently, only a **local** provider is
-available. They are identified by `UUIDv4`.
-- `local_users` - Users from the **local** provider. They have a `bcrypt`-ed password stored in the
-database.
-- Any user can be part of multiple organizations.
-- There are two system roles at the moment: *user* and *admin*. There are two organization-level roles
-at the moment: *user* an *admin*.
-- Organization admins can create new users. Every new user gets a password set by admin. But the password is marked
-to be changed and no interesting endpoints are available for users that are required to change their password.
-If a user already exists in another organization, it is re-used - so the password does not take effect.
-- Local users exchange their username and password for a pair `JWT` tokens. An `access_token` is used
-to access the API, a `refresh_token` is used to get a new access token. Access tokens expire in 15 minutes.
-Refresh tokens expire in 30 days. These are sent in http-only cookies and are accompanied by CSRF token.
-- An access token issued after login is marked as *fresh*. Access tokens issued against the refresh
-token are marked as *nonfresh*. Sensitive operations (such as password changes and all admin endpoints) require *fresh* tokens.
-Thus forcing the user to send the username/password pair again. A special endpoint should be used for that
-to prevent issuing unnecessary refresh tokens.
-- Organization admins can delete a user from an organization. That makes the organization-scoped API inaccessible
-for them. However, they can still log in to the application.
-- Every user can have multiple **API tokens**. These are *always nonfresh, in a `user` system role and `user` organization
-role and do not expire.* They are also bound to a single organization. If you need to get rid of them, revoke them in the application.
-
-Also, there are at least two users available in the fresh dev environment:
-
-- `test-admin` (password *admin-password*) - An Administrator that can do everything in the organizations,
-for example add more users. Also a system-level administrator.
-- `test-user` (password *user-password*) - A user with restricted permissions. She cannot manage other users and
-printers in the organization.
-
-Both are bound to the **Default organization** with uuid `b3060e41-e319-4a9b-8ac4-e0936c75f275`.
-
-In the production mode, there is a default admin user named `karmen` with password `karmen3D` that has to be changed
-upon first login. Make sure that you do this right after the installation.
+*Source: https://docs.octoprint.org/en/master/development/virtual_printer.html*

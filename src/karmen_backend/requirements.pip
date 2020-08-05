@@ -1,0 +1,14 @@
+# django - what to add...
+django==3.0.8
+
+# rest framework is an easy way to build a restfull api on top of django 
+djangorestframework==3.11.0
+
+# human-friendly encoding for primary keys
+base36==0.1.1
+
+# global lock using django cache framework
+django-cache-lock==0.2.2
+
+# request client libraty (for communication with (pill) devices)
+requests==2.24.0

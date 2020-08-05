@@ -1,0 +1,9 @@
+# ipython / pdb in django
+# https://django-extensions.readthedocs.io/en/latest/
+django-extensions==3.0.2
+# life debugging, ..
+django-werkzeug==1.0.0
+# main testing library
+pytest==5.4.3
+# requests make http requests easy in python - used in testing
+requests==2.24.0

@@ -30,54 +30,15 @@ services:
     environment:
       SERVICE: flask
     ports:
-      - 127.0.0.1:5000:9764
+      - 127.0.0.1:5000:8000
+      - "8000:8000"
     volumes:
       - ./src/karmen_backend/server:/usr/src/app/server
       - ./tmp/karmen-files:/tmp/karmen-files
     networks: [ printers, backend ]
-    depends_on: [ postgres ]
-    links: [ postgres, redis ]
 
-  postgres:
-    image: postgres:11
-    restart: unless-stopped
-    env_file: [base.env, dev.env, local.env]
-    volumes:
-      - ./tmp/db-data:/var/lib/postgresql/data
-    ports:
-      - 127.0.0.1:5433:5432
-    networks: [ backend ]
 
-  backend_celery_worker:
-    <<: *backend_flask  # <-- reuse items from &backend_flask bookmark
-    # ... but skip migrations in backend_flask `command` property
-    command: scripts/docker-start.sh
-    environment:
-      SERVICE: celery-worker
-    ports: []
 
-  backend_celery_beat:
-    <<: *backend_flask  # <-- reuse items from &backend_flask bookmark
-    # ... but skip migrations in backend_flask `command` property
-    command: scripts/docker-start.sh
-    environment:
-      SERVICE: celery-beat
-    ports: []
-    networks: [ backend ]
-    links: [ redis ]
-
-  redis:
-    image: redis:5
-    env_file: [base.env, dev.env, local.env]
-    networks: [ backend ]
-
-  dummymailserver:
-    image: fragaria/karmen-dummymailserver
-    build: ./src/dummymailserver
-    env_file: [base.env, dev.env, local.env]
-    networks: [ backend ]
-    ports:
-      - 127.0.0.1:8088:8088
 
   fake_printer1:
     image: fragaria/karmen-fakeprinter
