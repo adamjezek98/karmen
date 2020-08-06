@@ -1,4 +1,5 @@
 import dayjs from "dayjs";
+import Cookies from "js-cookie";
 import { persistUserProfile, dropUserProfile } from "../services/backend";
 
 const getUserDataFromApiResponse = (data, activeOrganization) => {
@@ -11,6 +12,8 @@ const getUserDataFromApiResponse = (data, activeOrganization) => {
     email: data.email,
     systemRole: data.system_role || data.systemRole,
     hasFreshToken: data.refresh || data.hasFreshToken,
+    accessToken: data.access,
+    refreshToken: data.refresh,
     accessTokenExpiresOn:dayjs("2020-12-30") ,
     organizations: data.groups,
     activeOrganization: data.activeOrganization || activeOrganization,
@@ -62,6 +65,8 @@ export default (
         action.payload.data,
         state.activeOrganization
       );
+      Cookies.set("refresh_token_cookie", action.payload.data.refresh);
+      Cookies.set("access_token_cookie", action.payload.data.access);
       persistUserProfile(_without("activeOrganization", userData));
       return Object.assign({}, state, {
         ...userData,

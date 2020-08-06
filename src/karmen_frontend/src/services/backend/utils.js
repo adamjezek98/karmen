@@ -95,6 +95,8 @@ export const performRequest = (opts) => {
   };
   opts = Object.assign({}, defaults, opts);
 
+
+
   let fetchOpts = {
     method: opts.method,
     headers: opts.headers,
@@ -102,6 +104,7 @@ export const performRequest = (opts) => {
   // TODO this should probably merge with passed headers
   if (opts.useAuth) {
     fetchOpts.headers = getJsonPostHeaders();
+    fetchOpts.headers.set("authorization", 'Bearer ' +Cookies.get("access_token_cookie"));
   }
   if (opts.data) {
     fetchOpts.body = JSON.stringify(opts.data);

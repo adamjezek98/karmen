@@ -2,7 +2,7 @@ import { performRequest } from "./utils";
 
 export const addOrganization = (name) => {
   return performRequest({
-    uri: "/organizations",
+    uri: "/groups/",
     data: {
       name,
     },
