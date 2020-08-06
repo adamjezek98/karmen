@@ -18,12 +18,20 @@ class TokensViewSet(viewsets.ViewSet):
             serializer.is_valid(raise_exception=True)
         except TokenError as e:
             raise InvalidToken(e.args[0])
-        print(dir(serializer.username_field))
-        print(dir(serializer.user))
+
+        user = User(pk=serializer.user.pk)
+        groups = []
+        for i in serializer.user.printer_groups.all():
+            d = i.__dict__
+            print(d)
+            d.pop("_state")
+            d["uuid"] = d.pop("id")
+            groups.append(d)
 
         request.user = serializer.user
         user_serializer = UserSerializer(context={"request":request}, instance=serializer.user)
-        return Response({**user_serializer.data, **serializer.validated_data})
+        return Response({**user_serializer.data, **serializer.validated_data,
+                         "groups":groups})
         return Response(serializer.validated_data, status=status.HTTP_200_OK)
 
     def create(self, request):
