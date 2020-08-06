@@ -25,7 +25,7 @@ export default (state = initialState, action) => {
       });
     case "HEARTBEAT_FAILED":
       return Object.assign({}, state, {
-        isOnline: false,
+        isOnline: true,
       });
     case "HEARTBEAT_MAINTENANCE":
       return Object.assign({}, state, {

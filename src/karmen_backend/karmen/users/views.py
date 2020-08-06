@@ -84,6 +84,8 @@ class UsersViewSet(viewsets.ModelViewSet):
         user = User.objects.get(pk=request.user.pk)
 
         serializer = self.get_serializer(instance=user)
+        print(serializer)
+        print(dir(serializer))
         return Response(serializer.data)
 
     @me.mapping.patch

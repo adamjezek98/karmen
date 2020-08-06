@@ -71,6 +71,9 @@ class Menu extends React.Component {
       logout,
       switchOrganization,
     } = this.props;
+    console.log(this.state);
+    console.log(organizations);
+    console.log(userState);
     const { navigation, orgListExpanded } = this.state;
     const orgList = organizations
       ? Object.values(organizations)

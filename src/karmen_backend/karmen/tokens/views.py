@@ -2,6 +2,8 @@ from rest_framework.response import Response
 from rest_framework import status, viewsets, decorators, permissions
 from rest_framework_simplejwt.exceptions import TokenError, InvalidToken
 from tokens.serializers import KarmenTokenObtainPairSerializer, KarmenTokenRefreshSerializer
+from users.serializers import UserSerializer
+from users.models import  User
 
 
 class TokensViewSet(viewsets.ViewSet):
@@ -16,7 +18,12 @@ class TokensViewSet(viewsets.ViewSet):
             serializer.is_valid(raise_exception=True)
         except TokenError as e:
             raise InvalidToken(e.args[0])
+        print(dir(serializer.username_field))
+        print(dir(serializer.user))
 
+        request.user = serializer.user
+        user_serializer = UserSerializer(context={"request":request}, instance=serializer.user)
+        return Response({**user_serializer.data, **serializer.validated_data})
         return Response(serializer.validated_data, status=status.HTTP_200_OK)
 
     def create(self, request):

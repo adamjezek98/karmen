@@ -90,6 +90,7 @@ class UserSerializer(KarmenModelSerializer):
         extra_kwargs = {'password': {'write_only': True}}
 
     def __init__(self, *args, **kwargs):
+        print(args, kwargs)
         super().__init__(*args, **kwargs)
         current_user = kwargs['context']['request'].user
         if not current_user.has_perm('change_user'):

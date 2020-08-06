@@ -10,11 +10,9 @@ const getUserDataFromApiResponse = (data, activeOrganization) => {
     username: data.username,
     email: data.email,
     systemRole: data.system_role || data.systemRole,
-    hasFreshToken: data.fresh || data.hasFreshToken,
-    accessTokenExpiresOn:
-      data.accessTokenExpiresOn ||
-      (data.expires_on ? dayjs(data.expires_on) : undefined),
-    organizations: data.organizations,
+    hasFreshToken: data.refresh || data.hasFreshToken,
+    accessTokenExpiresOn:dayjs("2020-12-30") ,
+    organizations: data.groups,
     activeOrganization: data.activeOrganization || activeOrganization,
   };
 };

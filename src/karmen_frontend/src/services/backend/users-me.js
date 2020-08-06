@@ -67,7 +67,7 @@ export const activate = (
 
 export const authenticate = (username, password) => {
   return performRequest({
-    uri: `/users/me/authenticate`,
+    uri: `/tokens/`,
     useAuth: false,
     data: {
       username,
@@ -79,7 +79,7 @@ export const authenticate = (username, password) => {
 
 export const authenticateFresh = (username, password) => {
   return performRequest({
-    uri: `/users/me/authenticate-fresh`,
+    uri: `/tokens/`,
     useAuth: false,
     data: {
       username,
@@ -91,7 +91,7 @@ export const authenticateFresh = (username, password) => {
 
 export const refreshAccessToken = () => {
   return performRequest({
-    uri: `/users/me/authenticate-refresh`,
+    uri: `/tokens/refresh/`,
     useAuth: false,
     headers: {
       "Content-Type": "application/json",
@@ -103,7 +103,8 @@ export const refreshAccessToken = () => {
 
 export const logout = () => {
   return performRequest({
-    uri: `/users/me/logout`,
+    uri: `/token/mine/`,
+    method: 'DELETE',
     parseResponse: false,
     successCodes: [200],
   })
